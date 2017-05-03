@@ -60,6 +60,22 @@ namespace project{
 		}
 	}
 	*/
+	
+	/*
+	Name: Add
+	Parameter: Node *element (the element that should be added to the end of the list)
+			   
+			   ***Parameter should make sense and be in range of the List***
+			   ***Else nothing will happen***
+	Return Value: int
+					is 0 if everything went fine
+					else -1
+	
+	Action:
+		Method validates the parameter, puts the |element| on the end of the list and
+		puts the |this->_Last| on the new last element(not always the added one)
+		runs through loop to find the last element from the added one
+	*/
 	int List::Add(Node *element){
 		if(element != NULL){
 			this->_Last -> Next = element;
@@ -75,6 +91,20 @@ namespace project{
 		}
 	}
 	
+		/*
+	Name: Remove
+	Parameter: int position (the position in the list where the element should be removed)
+			   
+			   ***Parameter should make sense and be in range of the List***
+			   ***Else nothing will happen***
+	Return Value: int
+					is 0 if everything went fine
+					else -1
+	
+	Action:
+		Method validates the parameter and then removes the Node
+		on the chosen |position|
+	*/
 	int List::Remove(int position){
 		if(position <= this->_length){
 			if(position == 1){
@@ -95,20 +125,44 @@ namespace project{
 		}
 	}
 	
+	/*
+		Name: Insert
+		Parameter: int position (the position in the list where the element should be put
+				   Node *element (the element, that should be inserted)
+				   
+				   ***Parameter should make sense and be in range of the List***
+				   ***Else nothing will happen***
+		Return Value: int
+						is 0 if everything went fine
+						else -1
+		
+		Action:
+			Method validates the parameter and then inserts the |element|
+			on the chosen position
+	*/
 	int List::Insert(int position, Node *element){
 		if(position <= this->_length +1 && element != NULL){
 			this->_Current = this->_First;
-			for(int i = 0; i < position; i++)
+			for(int i = 1; i < position; i++)
 				this->_Current = this->_Current -> Next;
 			if(this->_Current -> Next == NULL){
 				this->_Last = element;
 			}
-			element -> Next = this->_Current -> Next;
+			if(this->_Current == this->_First)
+				this->_First = element;
+			element -> Next = this->_Current;
 			this->_Current = element;
 			return 0;	
 		}else
 			return -1;
 	}
+	
+			//int Move(int source, int destination);
+			//int Sort();
+			//int Max();
+			//int Min();
+			//Node *Peek(int position);
+	
 }
 	int main(void){
 		Node *First = new Node(3);

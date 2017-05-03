@@ -15,8 +15,9 @@ namespace project{
 	class List{
 		private:
 			int _length;
+			//length of the List
 		public:
-			Node *_Current;
+			Node *_Current;//pointer to current node
 			Node *_First;
 			Node *_Last;
 			List(Node *first, Node *current, Node *last);
@@ -25,6 +26,11 @@ namespace project{
 			int Add(Node *element);
 			int Remove(int position);
 			int Insert(int position, Node *element);
+			//int Move(int source, int destination);
+			//int Sort();
+			//int Max();
+			//int Min();
+			//Node *Peek(int position);
 	};
 }
 #endif
