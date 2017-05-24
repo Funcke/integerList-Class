@@ -1,6 +1,8 @@
+//includes
 #include <iostream>
 #include <string>
-#include "test.hpp"
+#include "list.hpp"
+
 using namespace std;
 using namespace project;
 
@@ -109,11 +111,16 @@ namespace project{
 		}else
 			return -1;
 	}
-}
-	int main(void){
-		Node *First = new Node(3);
-		Node *Last = new Node(5);
-		List *Test = new List(First);
-		cout << "Item:" << Test->_Current->content << endl;
-		return 0;
+
+	Node * List::Seek(int value){
+		
+		this->_Current = this->_First;
+		while(this->_Currrent != this->_Last && this->_Current->content != value)
+			this->_Current = this->_Current->Next;
+		
+		if(this->_Current->content ==value)
+			return this->_Current;
+		else
+			return NULL;
 	}
+}

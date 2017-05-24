@@ -1,5 +1,5 @@
-#ifndef _LISTE_H_
-#define _LISTE_H_
+#ifndef __LISTE_H__
+#define __LISTE_H__
 
 namespace project{
 	
@@ -7,9 +7,11 @@ namespace project{
 		public:
 			int content;
 			Node *Next;
-			Node(int ncontent, Node *element);
-			Node(int ncontent);
+
+			//Constructor
 			Node();
+			Node(int ncontent);
+			Node(int ncontent, Node *element);
 	};
 	
 	class List{
@@ -19,12 +21,17 @@ namespace project{
 			Node *_Current;
 			Node *_First;
 			Node *_Last;
+
+			//Constructor
 			List(Node *first, Node *current, Node *last);
 			List(Node *element);
 			List();
+
+			//Methods
 			int Add(Node *element);
 			int Remove(int position);
 			int Insert(int position, Node *element);
+			Node * Seek(int value);
 	};
 }
 #endif
