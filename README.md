@@ -12,4 +12,5 @@ Following Methods are provided:
 - Remove <- Removes Node at given position
 - Insert <- Inserts Node at the position of the given value or at the end
 - Seek <- Looks up node with given value, returns adress or null-pointer
+- Sum <- adds all the list node contents and reutrns the sum of them.
 
