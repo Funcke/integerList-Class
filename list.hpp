@@ -31,7 +31,9 @@ namespace project{
 			int Add(Node *element);
 			int Remove(int position);
 			int Insert(int position, Node *element);
+		  //!-- Test required --!
 			Node * Seek(int value);
+			int Sum();
 	};
 }
 #endif

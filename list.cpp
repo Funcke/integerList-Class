@@ -112,15 +112,34 @@ namespace project{
 			return -1;
 	}
 
+// !-- Test required --!
+
 	Node * List::Seek(int value){
 		
 		this->_Current = this->_First;
-		while(this->_Currrent != this->_Last && this->_Current->content != value)
+		while(this->_Current != this->_Last && this->_Current->content != value)
 			this->_Current = this->_Current->Next;
 		
 		if(this->_Current->content ==value)
 			return this->_Current;
 		else
 			return NULL;
+	}
+
+// !-- Test required --!
+
+	int List::Sum(){
+		int sum;
+
+		this->_Current = this->_First;
+
+		while(this->_Current->Next != NULL && this->_Current != this->_Last){
+			sum += this->_Current->content;
+			this->_Current = this->_Current->Next;
+		}
+
+		if(this->_Current != this->_Last)
+			cout << "Not all data could be retrieved" << endl;
+		return sum;
 	}
 }
